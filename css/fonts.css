@@ -1,0 +1,55 @@
+p.a {
+  font-family: "Times New Roman", Times, serif;
+}
+
+p.b {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a.invisible {
+  font-family: Tahoma, Geneva, sans-serif;
+  color: transparent;
+}
+
+a.a {
+  font-family: "Times New Roman", Times, serif;
+}
+
+p.x {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+a {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+p {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+em {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h1 {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h2 {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h3 {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h4 {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h5 {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+h6 {
+  font-family: Tahoma, Geneva, sans-serif;
+}
