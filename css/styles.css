@@ -1,5 +1,5 @@
 
-/*---BEGINING OF TUBE---*/
+/*---BEGINNING OF TUBE---*/
 body{
 margin: 100;
 padding: 0;
@@ -57,12 +57,24 @@ width: 100%;
 }
 /*---END OF TUBE---*/
 
-/*---BEGINING OF SLIDER---*/
+/*---BEGINNING OF SLIDER---*/
 <style>
 .mySlides {display:none;}
 </style>
 /*---END OF SLIDER---*/
 
-/*---BEGINING OF MARGIN---*/
+/*---BEGINNING OF GALLERY---*/
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
-/*---END OF MARGIN---*/
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+/*---END OF GALLERY---*/

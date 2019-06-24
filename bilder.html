@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!---BEGINING OF FAVICONS-->
+		<!--BEGINING OF FAVICONS-->
 		<link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -22,20 +22,16 @@
 		<meta name="theme-color" content="#ffffff">
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!--END OF FAVICONS-->
+		<!--END OF FAVICON-->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/navbar.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/fonts.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<!--link rel="stylesheet" typ3="text/css" href="css/w3.css" media="screen"-->
-
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 
-		<style>
-			.mySlides {display:none;}
-		</style>
-
-		<title>XXX | Beach House</title>
+		<title>Bilder | Beach House</title>
 	</head>
 <body>
 
@@ -43,66 +39,251 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
 	crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		let modalId = $('#image-gallery');
 
-	<div id="framecontentLeft">
-	<div class="innertube">
+$(document)
+  .ready(function () {
 
-	<!--Left-->
+    loadGallery(true, 'a.thumbnail');
 
-	</div>
-	</div>
+    //This function disables buttons when needed
+    function disableButtons(counter_max, counter_current) {
+      $('#show-previous-image, #show-next-image')
+        .show();
+      if (counter_max === counter_current) {
+        $('#show-next-image')
+          .hide();
+      } else if (counter_current === 1) {
+        $('#show-previous-image')
+          .hide();
+      }
+    }
 
-	<div id="framecontentRight">
-	<div class="innertube">
+    /**
+     *
+     * @param setIDs        Sets IDs when DOM is loaded. If using a PHP counter, set to false.
+     * @param setClickAttr  Sets the attribute for the click handler.
+     */
 
-	<!--Right-->
+    function loadGallery(setIDs, setClickAttr) {
+      let current_image,
+        selector,
+        counter = 0;
 
-	</div>
-	</div>
+      $('#show-next-image, #show-previous-image')
+        .click(function () {
+          if ($(this)
+            .attr('id') === 'show-previous-image') {
+            current_image--;
+          } else {
+            current_image++;
+          }
 
+          selector = $('[data-image-id="' + current_image + '"]');
+          updateGallery(selector);
+        });
 
-	<div id="maincontent">
-	<div class="innertube">
-	<!--Inner tube-->
+      function updateGallery(selector) {
+        let $sel = selector;
+        current_image = $sel.data('image-id');
+        $('#image-gallery-title')
+          .text($sel.data('title'));
+        $('#image-gallery-image')
+          .attr('src', $sel.data('image'));
+        disableButtons(counter, $sel.data('image-id'));
+      }
+
+      if (setIDs == true) {
+        $('[data-image-id]')
+          .each(function () {
+            counter++;
+            $(this)
+              .attr('data-image-id', counter);
+          });
+      }
+      $(setClickAttr)
+        .on('click', function () {
+          updateGallery($(this));
+        });
+    }
+  });
+
+// build key actions
+$(document)
+  .keydown(function (e) {
+    switch (e.which) {
+      case 37: // left
+        if ((modalId.data('bs.modal') || {})._isShown && $('#show-previous-image').is(":visible")) {
+          $('#show-previous-image')
+            .click();
+        }
+        break;
+
+      case 39: // right
+        if ((modalId.data('bs.modal') || {})._isShown && $('#show-next-image').is(":visible")) {
+          $('#show-next-image')
+            .click();
+        }
+        break;
+
+      default:
+        return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+  });
+
+	</script>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="index.html">Beach House</a>
+  <a class="navbar-brand" href="index.html">   |</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+   	  <a class="nav-item nav-link" href="index.html">Hem</a>
+   	  <a class="nav-item nav-link active" href="bilder.html">Bilder <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="historia.html">Historia</a>
+      <a class="nav-item nav-link" href="kontakt.html">Kontakta oss</a>
+      <a class="nav-item nav-link" href="bokning.html">Bokning</a>
+    </div>
   </div>
 </nav>
-		<br>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_61.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_61.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_9.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_9.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_102.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_102.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Test1"
+                   data-image="images/1_13.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_13.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                     </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                   data-image="images/1_.jpg"
+                   data-target="#image-gallery">
+                    <img class="img-thumbnail"
+                         src="images/1_.jpg"
+                         alt="Beach House">
+                </a>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="image-gallery-title"></h4>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
+                        </button>
+
+                        <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 </div>
-
 </body>
 </html>
