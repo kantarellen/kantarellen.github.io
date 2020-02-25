@@ -7,6 +7,13 @@ RewriteRule ^(.+)$ $1.html [L,QSA]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
 RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 
+#enfoce www
+#Force www:
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^example.com [NC]
+RewriteRule ^(.*)$ http://www.kantarellen.github.io/$1 [L,R=301,NC]
+#end
+
 #############
 #Page errors#
 #############
