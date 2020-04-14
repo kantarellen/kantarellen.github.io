@@ -1,0 +1,22 @@
+.btnSpace{
+  margin-left: 10px;
+}
+.alert-advert{
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1px;
+}
+a.navBtn{
+    border-radius: 7px;
+    margin-left: 2px;
+}
+
+
+
+
+@media screen and (max-width: 991px) {
+  .btnSpace{
+  margin-left: 0px;
+    }
+}

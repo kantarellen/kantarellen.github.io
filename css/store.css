@@ -1,3 +1,10 @@
+/*mSUB [beg]*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@font-face {
+   font-family: Genome;
+   src: url(../fonts/Genome-Thin.otf);
+}
+/*end*/
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -7,7 +14,7 @@
 }
 
 .price {
-  color: #FFFFFF;
+  color: #45c73c;
   font-size: 22px;
 }
 
@@ -54,4 +61,28 @@ h1.clr{
   width: 100%;
   font-size: 18px;
   text-decoration: none;
+}
+/*mSUBSTITUTE*/
+.filter {
+  -webkit-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
+}
+@media screen and (max-width: 991px) {
+    .short-text { display: inline-block; }
+    .full-text { display: none; }
+}
+.floatLeft {
+    float:left;
+}
+.floatRigh {
+    float:right;
+}
+body {
+  background: #e8e8e8;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+h1{
+   font-family: Genome;
 }

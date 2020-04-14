@@ -1,0 +1,122 @@
+s@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+body{
+    background: rgb(205,205,208);
+    background: linear-gradient(90deg, #bdc3c7 0%, #2c3e50 100%);
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 30px;
+}
+main{
+    background-color: #c8cacf;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+#inner {
+  width: 50%;
+  margin: 0 auto;
+}
+main{
+    margin-top: 20px;
+    line-height: 1.5em;
+}
+p.nav
+{
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+a.nav{
+    text-decoration: none;
+    color: white;
+}
+a.front:link {
+  color: white;
+}
+a.front:visited {
+  color: white;
+}
+a.front:hover {
+  color: #bdc3c7;
+}
+a.front:active {
+  color: white;
+}
+h1.nanum{
+    font-family: 'Montserrat', cursive;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+h3.script201{
+    font-family: 'Dancing Script', cursive;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+h1, h3.WH903
+{
+    color: #FFFFFF;
+}
+header.sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #000000;
+    padding: 20px;
+    padding-right: 2500;
+    padding-left: 2500;
+    min-height: 100px;
+    z-index: 2;
+}
+padIMG{
+    margin-right: 2px;
+    padding-right: 2px;
+}
+h1.bT{
+    color: #000000;
+}
+/* IGNORE 4 NOW
+@media only screen and (max-width: 700px){
+    
+    h1{
+        text-align: center;
+        background-color: white;
+        font-size: 1.6em;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+.imgtop{
+    display: none;
+}
+nav a{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: aquamarine;
+    text-align: center;
+    text-decoration: none;
+    margin-left: -8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h2{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: 
+}
+
+ul{
+    list-style-type: none;
+    margin-top: 20px;
+    margin-left: 0px;
+}
+    .inner{
+      width: 50%;
+      margin: 0 auto;
+    }
+*/
