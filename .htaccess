@@ -9,7 +9,3 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^example.com [NC]
 RewriteRule ^(.*)$ http://www.kantarellen.github.io/$1 [L,R=301,NC]
 #end
-
-#############
-#Page errors#
-#############
