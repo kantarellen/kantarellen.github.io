@@ -309,3 +309,23 @@ hr.noMag{
 .floatRigh {
     float:right;
 }
+
+/* error css */
+h1.midGnome{
+    font-family: 'Genome';
+    text-align: center;
+    font-weight: bold;
+}
+h3.midGnome{
+    font-family: 'Roboto', sans-serif;
+    font-size: 42;
+    text-align: center;
+}
+a.yellow-link{
+    color: #FFC107;
+    text-decoration: none;
+}
+a.yellow-link:hover{
+    color: #E1A900;
+    text-decoration: none;
+}
